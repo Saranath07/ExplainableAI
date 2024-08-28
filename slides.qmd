@@ -1,0 +1,121 @@
+---
+title: "Visualizing Deep Learning Model Interpretability - XAI"
+author: 
+  - name: "Saranath P"
+  - name: "Janani D"
+format: revealjs
+---
+
+## Introduction about Us
+ We are Saranath P and Janani D who are currently pursuing our BS in Data Science and Applications at the Indian Institute of Technology, Madras. We are interested in the field of Data Science and are currently exploring the field of Deep Learning, especially in the field of Deep Learning Interpretability. 
+
+If we could get ideas and also a mentor for this project, we would be really grateful to you.
+
+
+## Introduction About the Project
+
+This was a small project which was started as a part of the **ACM summer school** on **Responsible and Safe AI** (June 2 - June 14 2024).
+This project aims to visualize the interpretability of deep learning models using various methods such as GradCAM, Sparse Auto Encoders etc.
+
+## About the dataset
+
+The dataset which we are dealing is available open source and can be found [here](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset/code?datasetId=1608934&searchQuery=visi).
+
+There are 4 classes in the dataset:
+
+:::{.nonincremental}
+- Glioma
+- Meningioma
+- No Tumor
+- Pituitary
+:::
+
+## Model used
+
+We trained DenseNet 169 model where we freezed the last 10 layers for finetuning.
+
+
+:::{}
+![](image.png)
+:::
+
+## Classification Report
+
+After training the model for 10 epochs, we get the following results:
+
+:::{}
+```
+Accuracy of the model on the Test images: 94.81311975591152%
+Classification Report:
+               precision    recall  f1-score   support
+
+      glioma       0.99      0.87      0.93       300
+  meningioma       0.89      0.91      0.90       306
+     notumor       0.98      1.00      0.99       405
+   pituitary       0.93      0.99      0.96       300
+
+    accuracy                           0.95      1311
+   macro avg       0.95      0.94      0.94      1311
+weighted avg       0.95      0.95      0.95      1311
+```
+:::
+
+This shows the model is actually performing well as both the $F_1$ score and the accuracy are high.
+
+## The major Problem
+
+Though we see there is a very good accuracy, there is a small twist in the story
+
+::: {.columns}
+
+::: {.column width="33%"}
+<img src="pic1.png" alt="pic1" width="800" />
+:::
+
+::: {.column width="33%"}
+<img src="pic2.png" alt="pic2" width="800" />
+:::
+
+::: {.column width="33%"}
+<img src="pic4.png" alt="pic4" width="800" />
+:::
+
+:::
+
+These images show that sometimes the model tend to highlight the tumor and many times it is not. These images are classified correctly but the model is not able to identify the tumor in the image.
+
+## Wrong Samples
+
+These images are classified wrong by the model and all the GradCAM images don't make any sense.
+
+::: {.columns}
+
+::: {.column width="33%"}
+<img src="wrong1.png" alt="pic1" width="800" />
+:::
+
+::: {.column width="33%"}
+<img src="wrong2.png" alt="pic2" width="800" />
+:::
+
+::: {.column width="33%"}
+<img src="wrong3.png" alt="pic4" width="800" />
+:::
+
+:::
+
+## Our questions
+
+One of our observation from this experiment was the model is able to find correlations but no causations. We have a few questions which we would like to ask you:
+
+:::{style="font-size: 0.75em;"}
+- Can we train the model differently using any reinforcement learning techniques to improve the explainability of the model?
+- We are also trying out vision transformers and is there any way to improve the explainability of the model using any approach? If so can LLMs also be trained to improve the explainability of the model?
+- We are yet to explore for other datasets which involve text and speech. We assume that the language models are also able to find causation due to its complex structure. Can we use any RL approach to improve the explainability of the model?
+:::
+
+##
+
+**Thanks a lot for your time. We hope to hear from you soon.**
+
+Github link : ![GitHub](https://github.com/Saranath07/ExplainableAI)
