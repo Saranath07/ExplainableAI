@@ -118,4 +118,4 @@ One of our observation from this experiment was the model is able to find correl
 
 **Thanks a lot for your time. We hope to hear from you soon.**
 
-Github link : ![GitHub](https://github.com/Saranath07/ExplainableAI)
+[GitHub](https://github.com/Saranath07/ExplainableAI)
